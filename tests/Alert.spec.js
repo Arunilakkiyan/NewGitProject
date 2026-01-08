@@ -14,14 +14,22 @@ test("Simple Alert", async ({ page }) => {
   //await page.waitForTimeout(5000)
 });
 
+
 test("Prompt Alert", async ({ page }) => {
   await page.goto("https://letcode.in/alert");
 
   page.on("dialog", async (dialog) => {
-    expect(dialog.message()).toContain("Are you happy with LetCode?");
-
+    // await expect(d.message()).toContain("Are you happy with LetCode?");
+    await dialog.type("Hello");
     await dialog.accept();
+
+     await expect(page).toHaveURL('https://www.facebook.com/');
+
+    
   });
 
-  await page.locator("#confirm").click();
+  await page.locator("#prompt").click();
+
+ 
 });
+
