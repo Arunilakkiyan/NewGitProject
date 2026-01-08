@@ -17,7 +17,7 @@ test("Simple Alert", async ({ page }) => {
 test("Prompt Alert", async ({ page }) => {
   await page.goto("https://letcode.in/alert");
 
-  page.on("dialog", async (dialog) => {
+  page.on("dia", async (dialog) => {
     expect(dialog.message()).toContain("Are you happy with LetCode?");
 
     await dialog.accept();
@@ -25,3 +25,21 @@ test("Prompt Alert", async ({ page }) => {
 
   await page.locator("#confirm").click();
 });
+
+
+test("Prompt Alert", async ({ page }) => {
+  await page.goto("https://letcode.in/alert");
+
+  page.on("dialog", async (dialog) => {
+    // await expect(d.message()).toContain("Are you happy with LetCode?");
+    await dialog.type("Hello");
+    await dialog.accept();
+
+    
+  });
+
+  await page.locator("#prompt").click();
+
+ 
+});
+
