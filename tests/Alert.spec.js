@@ -17,10 +17,10 @@ test("Simple Alert", async ({ page }) => {
 
 test("Prompt Alert", async ({ page }) => {
   await page.goto("https://letcode.in/alert");
-
   page.on("dialog", async (dialog) => {
-    // await expect(d.message()).toContain("Are you happy with LetCode?");
-    await dialog.type("Hello");
+    expect(dialog.message()).toContain("Are you happy with LetCode?");
+
+
     await dialog.accept();
 
      await expect(page).toHaveURL('https://www.facebook.com/');
@@ -32,4 +32,21 @@ test("Prompt Alert", async ({ page }) => {
 
  
 });
+
+test("Promp Alert", async ({ page }) => {
+  await page.goto("https://letcode.in/alert");
+
+  page.on("dialog", async (dialog) => {
+    // await expect(d.message()).toContain("Are you happy with LetCode?");
+    await dialog.type("Hello");
+    await dialog.accept();
+
+    
+  });
+
+  await page.locator("#prompt").click();
+
+ 
+});
+
 
