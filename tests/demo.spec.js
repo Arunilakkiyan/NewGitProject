@@ -40,3 +40,11 @@ test("Prompt Alert", async ({ page }) => {
 
  
 });
+
+test("Test 1",()=>{
+
+})
+
+test("Test 2",()=>{
+  
+})
