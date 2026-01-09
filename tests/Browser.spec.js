@@ -14,3 +14,8 @@ test("browser context",async () => {
   //await context.close();
   //await browser.close();
 })
+
+test("Test1",()=>{
+  console.log("Test 1");
+  
+})
